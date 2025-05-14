@@ -1,10 +1,10 @@
 <odoo>
     <record id="email_template_skill_alert" model="mail.template">
-        <field name="name">Skill Alert Email</field>
+        <field name="name">Announce Skill</field>
         <field name="model_id" ref="hr.model_hr_employee"/>
         <field name="subject">Skills Below Standard for ${object.name}</field>
-        <field name="email_from">${(user.email or 'noreply@example.com')|safe}</field>
-        <field name="email_to">${object.department_id.manager_id.work_email or 'hr@example.com'}</field>
+        <field name="email_from">${(user.email or 'noreply@gmail.com')|safe}</field>
+        <field name="email_to">${object.department_id.manager_id.work_email or 'hr@gmail.com'}</field>
         <field name="body_html" type="html">
             <![CDATA[
             <p>Dear HR,</p>

@@ -30,13 +30,13 @@ class Employee(models.Model):
                 lambda s: s.skill_level_id.sequence < s.skill_type_id.standard_level
             )
             if not low_skills:
-                raise UserError("No low-level skills to alert.")
+                raise UserError("No low-level.")
             template = self.env.ref("employee_skill_alert.email_template_skill_alert")
             self.env["mail.mail"].create(
                 {
-                    "subject": f"Skill Alert for {emp.name}",
+                    "subject": f"Annoucement: Skills Below Standard for {emp.name}",
                     "email_to": emp.department_id.manager_id.work_email
-                    or "hr@example.com",
+                    or "hr@gmail.com",
                     "body_html": template._render_template(
                         template.body_html, "hr.employee", emp.id
                     ),
