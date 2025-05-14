@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.alert</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_skill_alert"
+                        type="object"
+                        string="Send Skill Alert"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('has_any_low_skill', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
